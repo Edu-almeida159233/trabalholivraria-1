@@ -1,57 +1,68 @@
 body {
-    background-color:cornsilk;
+    background-color: cornsilk;
+    padding-bottom: 70px; /* ✅ ESPAÇO para o rodapé fixo */
 }
+
 li, a {
-    font: size 18px; 
-    color: coral;
+    font-size: 18px; 
+    color: rgb(253, 132, 88);
     list-style: none;
     display: inline-block;
 }
-header{
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px;
     background-color: bisque;
 }
-.logotipo{
+
+.logotipo {
     font-family: cursive;
     font-size: 40px;
     font-weight: bold;
 }
-.navlinks{
+
+.navlinks {
     list-style: none;
 }
+
 .navlinks li {
     display: inline-block;
     padding: 0% 20px;
     font-size: xx-large;
 }
-.navlinks li:hover{
+
+.navlinks li:hover {
     color: rgb(136, 60, 5);
 }
-button{
+
+button {
     padding: 0% 20px;
-    background-color:orange;
+    background-color: orange;
     border: none;
     border-radius: 60px;
     font-size: xx-large;
 }
-button:hover{
+
+button:hover {
     color: darkgoldenrod;
 }
+
 main {
     padding: 0%;
     font-family: cursive;
     font-size: large;
-    
+    min-height: 60vh;
 }
-.hh{
+
+.hh {
     text-align: center;
 }
+
 img {
     width: 200px;
-    
 }
 
 .texto {
@@ -60,36 +71,143 @@ img {
     padding: 10px;
     width: 200px;
 }
+
 p {
     font-family: cursive;
-    text-align:center;
+    text-align: center;
     font-size: x-large;
 }
+
 .paraleitura {
     background-color: dimgray;
-
 }
+
 th {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .p123 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size:large ;
-    }
-    .texto2 {
+    font-size: large;
+}
+
+.texto2 {
     text-align: center;
     border: 1px;
     padding: 60px;
     width: fit-content;
-    
-    
-    
 }
 
+/* ===== ESTILOS PARA FORMULÁRIO E VALIDAÇÃO ===== */
+form div {
+    margin-bottom: 20px;
+}
 
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: cursive;
+    font-size: x-large;
+    color: #333;
+}
 
-    
+form input {
+    padding: 12px;
+    width: 300px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease;
+}
 
-   
+form input:focus {
+    outline: none;
+    border-color: orange;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
 
+/* Estados de validação */
+input.valido {
+    border: 2px solid #28a745;
+    background-color: #f8fff9;
+}
 
+input.invalido {
+    border: 2px solid #dc3545;
+    background-color: #fff8f8;
+}
+
+/* Mensagens de erro */
+.erro {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Botão de enviar do formulário */
+form button[type="submit"] {
+    padding: 15px 40px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 60px;
+    font-size: x-large;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+form button[type="submit"]:hover {
+    background-color: darkorange;
+    transform: scale(1.05);
+}
+
+/* Estilo para o botão de tema */
+.botao-tema {
+    padding: 12px 14px !important;
+    background-color: orange !important;
+    border: none !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    z-index: 1000 !important;
+    position: relative !important;
+    margin-left: 10px !important;
+}
+
+.botao-tema:hover {
+    transform: scale(1.1) !important;
+    background-color: darkorange !important;
+}
+
+/* ===== RODAPÉ FIXO ===== */
+.rodape {
+    background-color: bisque;
+    color: #333;
+    padding: 10px 20px;
+    /* ✅ REMOVIDO: margin-top: 200px; (agora controlado pelo JavaScript) */
+    border-top: 1px solid orange;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    /* O JavaScript vai controlar position e bottom */
+}
+
+.rodape-direitos {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 3px 0;
+}
+
+.rodape-texto {
+    font-family: cursive;
+    font-size: 14px;
+    color: rgb(253, 132, 88);
+    margin: 0;
+    font-weight: bold;
+}

@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="FreeBooks">
+    <meta name="keywords" content="Site de aprendizado de Dev">
     <title>FreeBooks</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" id="theme-style">
 </head>
 <body>
     <header>
@@ -12,7 +14,7 @@
         <ul class="navlinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="quemsomos.html">Quem Somos?</a></li>
-            <li><b>Equipe</b></li>
+            <li><a href="equipe.html">Equipe</a></li>
             
         </ul>
         <a href="suporte.html"><button>Suporte</button></a>
@@ -22,15 +24,31 @@
         <h2 class="hh">FreeBooks: o seu site de livros totalmente gratuitos!!</h2>
         <h1 class="hh"></h1>
         <form action="" method="post" class="hh">
-            <label for="id_nome">Seu nome:</label><br>
-            <input type="text" name="Nome" id="id_nome"><br><br>
-            <label for="id_mensagem">Mande uma mensagem para a equipe de suporte:</label><br>
-            <textarea name="mensagem" id="id_mensagem" maxlength="200"></textarea><br><br>
-            <button type="submit">Enviar</button>
-            
+          
+        
+        <div>
+            <label for="id_email">Seu e-mail:</label>
+            <input type="email" id="id_email" name="Email"
+            placeholder="Digite o seu email" >
+        </div>
+        
+        <div>
+            <label for="id_cpf">Seu CPF:</label>
+            <input type="text" id="id_cpf" name="CPF" placeholder="000.000.000-00" maxlength="14">
+        </div>
+        <br>
+        <button type="submit">Enviar</button>
 
         </form>
     </main>
-    
+
+    <footer class="rodape">
+        <p class="rodape-direitos">&copy; 2025 FreeBooks.</p>
+        <p class="rodape-texto">📚 Compartilhando conhecimento gratuitamente</p>
+    </footer>
+
+
+    <script src="js/validacao.js"></script>
+    <script src="js/tema.js"></script>
 </body>
 </html>
