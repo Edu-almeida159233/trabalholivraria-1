@@ -3,41 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FreeBooks">
-    <meta name="keywords" content="Site de aprendizado de Dev">
-    <title>FreeBooks</title>
-    <link rel="stylesheet" href="style/style.css" id="theme-style">
+    <meta name="description" content="FreeBooks - Seu site de livros gratuitos">
+    <meta name="keywords" content="livros gratuitos, free books, leitura online">
+    <title>FreeBooks - Sobre Nós</title>
+    <link rel="stylesheet" href="style.css" id="theme-style">
 </head>
 <body>
     <header>
         <span class="logotipo">FreeBooks</span>
         <ul class="navlinks">
             <li><b>Home</b></li>
-            <li><a href="quemsomos.html">Quem somos?</a></li>
+            <li><a href="quemsomos.html">Catálogo</a></li>
             <li><a href="equipe.html">Equipe</a></li>
         </ul>
-        <a href="suporte.html"><button>Suporte</button></a>
+        <div>
+            <a href="suporte.html"><button>Suporte</button></a>
+            <button id="btn-tema" class="botao-tema" title="Alternar tema">🌙</button>
+        </div>
     </header>
 
     <main>
-        <h2>FreeBooks: o seu site de livros totalmente gratuitos!!</h2>
-        <h3 class="hh">Confira agora os principais livros disponíveis:</h3>
-        
-        <!-- ✅ ÁREA DINÂMICA - O JavaScript vai inserir os livros aqui -->
-        <div id="area-livros">
-            <div style="text-align: center; padding: 40px; color: #666;">
-                <p>📚 Carregando livros...</p>
+        <div class="texto2">
+            <h2>FreeBooks: o seu site de livros totalmente gratuitos!!</h2>
+            <h3>Quem somos? E por que fazer isso?</h3>
+            
+            <div class="p123">
+                <p><strong>A Importância dos Livros em um Mundo que os Ignora</strong></p>
+                
+                <p>Os livros sempre foram pilares fundamentais para o desenvolvimento humano. Eles carregam histórias, conhecimentos, reflexões e emoções que atravessam gerações, moldando culturas e expandindo horizontes. Ler um livro é mais do que decifrar palavras; é mergulhar em universos paralelos, compreender diferentes perspectivas e enriquecer a mente e a alma.</p>
+                
+                <p>No entanto, em tempos de avanços tecnológicos e consumo acelerado de informações, os livros têm sido, infelizmente, deixados de lado. A praticidade das telas e a superficialidade das redes sociais muitas vezes substituem o hábito de leitura profunda, que exige tempo, concentração e dedicação. Essa mudança de comportamento não apenas empobrece o repertório cultural, mas também limita a capacidade de reflexão crítica e empatia, habilidades tão necessárias no mundo atual.</p>
+                
+                <p>Os livros são mais do que objetos; são portais para o conhecimento, a criatividade e a preservação da memória humana. Ignorá-los é abrir mão de uma das ferramentas mais poderosas para o crescimento pessoal e coletivo. Por isso, é essencial resgatar o hábito da leitura, incentivando o contato com obras que inspiren, eduquem e transformem. Afinal, um mundo que lê é um mundo que pensa, questiona e evolui.</p>
+                
+                <p><strong>A FreeBooks</strong> foi criada na intenção de compartilhar livros que possam compartilhar o conhecimento com o público que o procura. Para que isso seja possível fazemos de tudo apenas para poder passar conhecimento ao próximo, pois sabemos que livros são a base para a educação mundial.</p>
             </div>
         </div>
     </main>
 
     <footer class="rodape">
-        <p class="rodape-direitos">&copy; 2025 FreeBooks.</p>
+        <p class="rodape-direitos">&copy; 2025 FreeBooks. Todos os direitos reservados.</p>
         <p class="rodape-texto">📚 Compartilhando conhecimento gratuitamente</p>
     </footer>
 
-    <!-- ✅ ORDEM CORRETA DOS SCRIPTS -->
-    <script src="js/carrega_dados.js"></script>
     <script src="js/tema.js"></script>
 </body>
 </html>

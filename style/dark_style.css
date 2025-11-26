@@ -1,24 +1,26 @@
-/* dark_style.css - Tema Escuro */
+/* dark_style.css - Tema Escuro Corrigido */
+
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background-color: #121212;
     color: #e0e0e0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
     transition: background-color 0.3s ease;
 }
 
-li, a {
-    font-size: 18px; 
-    color: #ff8c69; /* Laranja mais suave para escuro */
-    list-style: none;
-    display: inline-block;
-    transition: color 0.3s ease;
-}
-
+/* Header e Navegação */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
+    padding: 15px 20px;
     background-color: #1e1e1e;
     border-bottom: 2px solid #333;
 }
@@ -32,22 +34,31 @@ header {
 
 .navlinks {
     list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 .navlinks li {
-    display: inline-block;
-    padding: 0% 20px;
-    font-size: xx-large;
+    padding: 0 20px;
 }
 
-.navlinks li:hover {
-    color: #ffa500; /* Laranja mais vibrante no hover */
+.navlinks a {
+    font-size: 18px;
+    color: #ff8c69;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navlinks a:hover {
+    color: #ffa500;
 }
 
 /* Botão de Tema */
 .botao-tema {
     padding: 10px 15px;
-    background-color: #333;
+    background-color: #bb86fc;
+    color: #000;
     border: none;
     border-radius: 50%;
     font-size: 20px;
@@ -56,93 +67,25 @@ header {
 }
 
 .botao-tema:hover {
-    background-color: #555;
+    background-color: #a56eff;
     transform: scale(1.1);
 }
 
-button:not(.botao-tema) {
-    padding: 0% 20px;
-    background-color: #bb86fc; /* Roxo para tema escuro */
-    border: none;
-    border-radius: 60px;
-    font-size: xx-large;
-    color: #000;
-}
-
-button:not(.botao-tema):hover {
-    color: #9965d4;
-    background-color: #a56eff;
-}
-
+/* Conteúdo Principal */
 main {
-    padding: 0%;
+    padding: 20px;
     font-family: cursive;
-    font-size: large;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .hh {
     text-align: center;
     color: #e0e0e0;
+    margin-bottom: 20px;
 }
 
-img {
-    width: 200px;
-    border-radius: 8px;
-    filter: brightness(0.8);
-}
-
-.texto {
-    vertical-align: top;
-    border: 1px solid #333;
-    padding: 10px;
-    width: 200px;
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-}
-
-p {
-    font-family: cursive;
-    text-align: center;
-    font-size: x-large;
-    color: #e0e0e0;
-}
-
-.paraleitura {
-    background-color: #2d2d2d;
-    color: #e0e0e0;
-}
-
-th {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #e0e0e0;
-}
-
-.p123 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    color: #e0e0e0;
-}
-
-.texto2 {
-    text-align: center;
-    border: 1px solid #333;
-    padding: 60px;
-    width: fit-content;
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-}
-
-/* Efeitos adicionais para tema escuro */
-.texto, .texto2 {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.texto:hover, .texto2:hover {
-    transform: translateY(-2px);
-}
-
-/* ===== ESTILOS PARA FORMULÁRIO NO TEMA ESCURO ===== */
+/* Formulários */
 form div {
     margin-bottom: 20px;
 }
@@ -157,7 +100,8 @@ form label {
 
 form input {
     padding: 12px;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     border: 2px solid #444;
     border-radius: 8px;
     font-size: 16px;
@@ -174,7 +118,7 @@ form input:focus {
     background-color: #333;
 }
 
-/* Estados de validação para tema escuro */
+/* Estados de validação */
 input.valido {
     border: 2px solid #28a745;
     background-color: #1e2e1e;
@@ -185,7 +129,7 @@ input.invalido {
     background-color: #2e1e1e;
 }
 
-/* Mensagens de erro para tema escuro */
+/* Mensagens de erro */
 .erro {
     color: #ff6b6b;
     font-size: 14px;
@@ -194,7 +138,24 @@ input.invalido {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Botão de enviar do formulário para tema escuro */
+/* Botões */
+button:not(.botao-tema) {
+    padding: 12px 30px;
+    background-color: #bb86fc;
+    border: none;
+    border-radius: 60px;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:not(.botao-tema):hover {
+    background-color: #a56eff;
+    transform: scale(1.05);
+}
+
+/* Botão de enviar específico */
 form button[type="submit"] {
     padding: 15px 40px;
     background-color: #bb86fc;
@@ -213,37 +174,76 @@ form button[type="submit"]:hover {
     transform: scale(1.05);
 }
 
-/* Ajustes para botão de tema no dark */
-.botao-tema {
-    background-color: #bb86fc !important;
-    color: #000 !important;
-}
-
-.botao-tema:hover {
-    background-color: #a56eff !important;
-}
-
+/* Rodapé */
 .rodape {
     background-color: #1e1e1e;
     color: #e0e0e0;
-    padding: 10px 20px;
-    margin-top: 800px; 
+    padding: 20px;
     border-top: 1px solid #bb86fc;
     text-align: center;
-    position: relative;
+    margin-top: 40px;
 }
 
 .rodape-direitos {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #888;
-    margin: 0 0 3px 0;
+    margin-bottom: 5px;
 }
 
 .rodape-texto {
     font-family: cursive;
     font-size: 14px;
     color: #ff8c69;
-    margin: 0;
     font-weight: bold;
+}
+
+/* Utilitários para texto e containers */
+.texto, .texto2 {
+    border: 1px solid #333;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.texto:hover, .texto2:hover {
+    transform: translateY(-2px);
+}
+
+.texto2 {
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.paraleitura {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+p {
+    font-family: cursive;
+    text-align: center;
+    font-size: x-large;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+}
+
+.p123 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: #e0e0e0;
+}
+
+/* Elementos de imagem */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    filter: brightness(0.8);
 }

@@ -1,6 +1,8 @@
 body {
     background-color: cornsilk;
     padding-bottom: 70px; /* ✅ ESPAÇO para o rodapé fixo */
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 li, a {
@@ -8,6 +10,7 @@ li, a {
     color: rgb(253, 132, 88);
     list-style: none;
     display: inline-block;
+    text-decoration: none;
 }
 
 header {
@@ -16,42 +19,92 @@ header {
     align-items: center;
     padding: 20px 20px;
     background-color: bisque;
+    border-bottom: 2px solid orange;
 }
 
 .logotipo {
     font-family: cursive;
     font-size: 40px;
     font-weight: bold;
+    color: #333;
 }
 
 .navlinks {
     list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
 .navlinks li {
     display: inline-block;
-    padding: 0% 20px;
-    font-size: xx-large;
+    padding: 10px 20px;
+    font-size: x-large;
 }
 
-.navlinks li:hover {
+.navlinks li a {
+    color: rgb(253, 132, 88);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navlinks li a:hover {
     color: rgb(136, 60, 5);
 }
 
+.navlinks li b {
+    color: rgb(136, 60, 5);
+}
+
+/* ✅ BOTÕES CORRIGIDOS */
 button {
-    padding: 0% 20px;
+    padding: 12px 24px;
     background-color: orange;
     border: none;
     border-radius: 60px;
-    font-size: xx-large;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button:hover {
-    color: darkgoldenrod;
+    background-color: darkorange;
+    transform: scale(1.05);
+}
+
+/* ✅ BOTÃO DE TEMA ESPECÍFICO */
+.botao-tema {
+    padding: 12px 14px !important;
+    background-color: orange !important;
+    border: none !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin-left: 10px !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #000 !important;
+}
+
+.botao-tema:hover {
+    transform: scale(1.1) !important;
+    background-color: darkorange !important;
+}
+
+/* HEADER BOTÕES CONTAINER */
+header > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 main {
-    padding: 0%;
+    padding: 20px;
     font-family: cursive;
     font-size: large;
     min-height: 60vh;
@@ -59,6 +112,8 @@ main {
 
 .hh {
     text-align: center;
+    color: #333;
+    margin: 20px 0;
 }
 
 img {
@@ -67,40 +122,63 @@ img {
 
 .texto {
     vertical-align: top;
-    border: 1px;
-    padding: 10px;
+    border: 1px solid #ddd;
+    padding: 20px;
     width: 200px;
+    background: white;
+    border-radius: 8px;
+    margin: 10px;
 }
 
 p {
     font-family: cursive;
     text-align: center;
     font-size: x-large;
+    color: #333;
+    line-height: 1.6;
 }
 
 .paraleitura {
     background-color: dimgray;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 th {
     font-family: Arial, Helvetica, sans-serif;
+    color: #333;
 }
 
 .p123 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
+    color: #333;
+    line-height: 1.6;
+    text-align: left;
 }
 
 .texto2 {
     text-align: center;
-    border: 1px;
-    padding: 60px;
+    border: 1px solid #ddd;
+    padding: 40px;
     width: fit-content;
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* ===== ESTILOS PARA FORMULÁRIO E VALIDAÇÃO ===== */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 form div {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 form label {
@@ -109,31 +187,38 @@ form label {
     font-family: cursive;
     font-size: x-large;
     color: #333;
+    font-weight: bold;
 }
 
-form input {
+form input, form textarea, form select {
     padding: 12px;
-    width: 300px;
+    width: 100%;
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-form input:focus {
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+form input:focus, form textarea:focus, form select:focus {
     outline: none;
     border-color: orange;
     box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
 }
 
 /* Estados de validação */
-input.valido {
+input.valido, textarea.valido, select.valido {
     border: 2px solid #28a745;
     background-color: #f8fff9;
 }
 
-input.invalido {
+input.invalido, textarea.invalido, select.invalido {
     border: 2px solid #dc3545;
     background-color: #fff8f8;
 }
@@ -148,7 +233,7 @@ input.invalido {
 }
 
 /* Botão de enviar do formulário */
-form button[type="submit"] {
+form button[type="submit"], form button[type="button"] {
     padding: 15px 40px;
     background-color: orange;
     color: white;
@@ -158,56 +243,193 @@ form button[type="submit"] {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
 }
 
-form button[type="submit"]:hover {
+form button[type="submit"]:hover, form button[type="button"]:hover {
     background-color: darkorange;
     transform: scale(1.05);
 }
 
-/* Estilo para o botão de tema */
-.botao-tema {
-    padding: 12px 14px !important;
-    background-color: orange !important;
-    border: none !important;
-    border-radius: 50% !important;
-    font-size: 20px !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    z-index: 1000 !important;
-    position: relative !important;
-    margin-left: 10px !important;
+/* Botão específico para enviar dúvida */
+#btn-enviar-duvida {
+    background-color: #28a745 !important;
 }
 
-.botao-tema:hover {
-    transform: scale(1.1) !important;
-    background-color: darkorange !important;
+#btn-enviar-duvida:hover {
+    background-color: #218838 !important;
 }
 
 /* ===== RODAPÉ FIXO ===== */
 .rodape {
     background-color: bisque;
     color: #333;
-    padding: 10px 20px;
-    /* ✅ REMOVIDO: margin-top: 200px; (agora controlado pelo JavaScript) */
-    border-top: 1px solid orange;
+    padding: 20px;
+    border-top: 2px solid orange;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-    /* O JavaScript vai controlar position e bottom */
+    margin-top: 40px;
 }
 
 .rodape-direitos {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     color: #666;
-    margin: 0 0 3px 0;
+    margin: 0 0 10px 0;
 }
 
 .rodape-texto {
     font-family: cursive;
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(253, 132, 88);
     margin: 0;
     font-weight: bold;
+}
+
+/* ✅ ESTILOS PARA CARDS DE LIVROS */
+.container-livros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card-livro {
+    background: white;
+    border: 2px solid orange;
+    border-radius: 12px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.card-livro:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.livro-imagem {
+    margin-bottom: 15px;
+}
+
+.livro-imagem img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.livro-info {
+    margin-bottom: 20px;
+    min-height: 80px;
+}
+
+.livro-info h4 {
+    margin: 0 0 8px 0;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.3;
+    font-family: cursive;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.livro-info p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.livro-actions {
+    margin-top: 10px;
+}
+
+.livro-actions a {
+    text-decoration: none;
+}
+
+.livro-actions button {
+    padding: 10px 20px;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-family: cursive;
+    width: 100%;
+}
+
+.livro-actions button:hover {
+    background-color: darkorange;
+    transform: scale(1.05);
+}
+
+/* ✅ RESPONSIVIDADE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .navlinks {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .navlinks li {
+        padding: 5px 10px;
+    }
+    
+    .logotipo {
+        font-size: 32px;
+    }
+    
+    .container-livros {
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .card-livro {
+        width: 160px;
+        padding: 15px;
+    }
+    
+    .card-livro img {
+        width: 120px;
+        height: 160px;
+    }
+    
+    .texto2 {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    form {
+        padding: 10px;
+    }
+    
+    form input, form textarea {
+        width: 100%;
+    }
 }

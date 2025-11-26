@@ -1,3 +1,10 @@
+// Função para validar nome de usuário
+function validarNome(nome) {
+    // Nome deve ter pelo menos 2 caracteres e só pode conter letras, números e espaços
+    const regexNome = /^[a-zA-ZÀ-ÿ0-9\s]{2,50}$/;
+    return regexNome.test(nome);
+}
+
 // Função para validar email
 function validarEmail(email) {
     const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -33,7 +40,7 @@ function mostrarErro(campoId, mensagem) {
     }
     
     // Adiciona classe de erro ao campo
-    campo.classList.remove('invalido');
+    campo.classList.remove('valido', 'invalido');
     campo.classList.add('invalido');
     
     // Cria mensagem de erro
@@ -42,7 +49,6 @@ function mostrarErro(campoId, mensagem) {
         erroElement.id = `erro-${campoId}`;
         erroElement.className = 'erro';
         erroElement.textContent = mensagem;
-        erroElement.style.cssText = 'color: red; font-size: 14px; display: block; margin-top: 5px;';
         
         campo.parentNode.appendChild(erroElement);
     }
@@ -55,7 +61,7 @@ function limparErros() {
     erros.forEach(erro => erro.remove());
     
     // Remove classes de erro dos campos
-    const campos = document.querySelectorAll('#id_email, #id_cpf');
+    const campos = document.querySelectorAll('#id_nome, #id_email, #id_cpf');
     campos.forEach(campo => {
         campo.classList.remove('valido', 'invalido');
     });
@@ -76,8 +82,22 @@ function marcarComoValido(campoId) {
 // Adicionar eventos quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
+    const nomeInput = document.getElementById('id_nome');
     const cpfInput = document.getElementById('id_cpf');
     const emailInput = document.getElementById('id_email');
+    
+    // ✅ VALIDAÇÃO EM TEMPO REAL DO NOME
+    if (nomeInput) {
+        nomeInput.addEventListener('blur', function() {
+            if (this.value.trim() !== '') {
+                if (validarNome(this.value)) {
+                    marcarComoValido('id_nome');
+                } else {
+                    mostrarErro('id_nome', 'Nome deve ter pelo menos 2 caracteres e só pode conter letras, números e espaços');
+                }
+            }
+        });
+    }
     
     // Adicionar formatação automática ao CPF
     if (cpfInput) {
@@ -92,7 +112,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     mostrarErro('id_cpf', 'CPF inválido');
                 }
             } else {
-                limparErros();
+                // Remove erro se ainda não completou o CPF
+                const erroExistente = document.getElementById('erro-id_cpf');
+                if (erroExistente && this.value.length < 14) {
+                    erroExistente.remove();
+                }
             }
         });
     }
@@ -116,11 +140,23 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             limparErros();
             
-            const email = document.getElementById('id_email').value;
-            const cpf = document.getElementById('id_cpf').value;
+            const nome = document.getElementById('id_nome')?.value || '';
+            const email = document.getElementById('id_email')?.value || '';
+            const cpf = document.getElementById('id_cpf')?.value || '';
             
             let valido = true;
             let primeiroErro = null;
+            
+            // ✅ VALIDAR NOME (NOVO CAMPO)
+            if (!nome.trim()) {
+                mostrarErro('id_nome', 'Por favor, preencha o nome de usuário');
+                valido = false;
+                if (!primeiroErro) primeiroErro = 'id_nome';
+            } else if (!validarNome(nome)) {
+                mostrarErro('id_nome', 'Nome deve ter pelo menos 2 caracteres e só pode conter letras, números e espaços');
+                valido = false;
+                if (!primeiroErro) primeiroErro = 'id_nome';
+            }
             
             // Validar email
             if (!email.trim()) {
@@ -156,13 +192,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             } else {
                 // Formulário válido - pode enviar
-                alert('Formulário enviado com sucesso!\n\nE-mail: ' + email + '\nCPF: ' + cpf);
-                // Aqui você pode adicionar: form.submit(); para enviar realmente
+                alert('Formulário enviado com sucesso!\n\nNome: ' + nome + '\nE-mail: ' + email + '\nCPF: ' + cpf);
                 
                 // Limpar formulário após envio (opcional)
                 form.reset();
                 limparErros();
+                
+                // Limpar também as classes de validação
+                const campos = document.querySelectorAll('#id_nome, #id_email, #id_cpf');
+                campos.forEach(campo => {
+                    campo.classList.remove('valido', 'invalido');
+                });
             }
         });
     }
+    
+    // ✅ VALIDAÇÃO DA CAIXINHA DE PERGUNTAS (SE EXISTIR)
+    const btnEnviarDuvida = document.getElementById('btn-enviar-duvida');
+    const inputPergunta = document.getElementById('id_pergunta');
+    
+    if (btnEnviarDuvida && inputPergunta) {
+        btnEnviarDuvida.addEventListener('click', function() {
+            const pergunta = inputPergunta.value.trim();
+            
+            if (pergunta === '') {
+                alert('⚠️ Por favor, digite sua dúvida antes de enviar.');
+                inputPergunta.focus();
+                return;
+            }
+            
+            if (pergunta.length < 10) {
+                alert('⚠️ Por favor, descreva melhor sua dúvida (mínimo 10 caracteres).');
+                inputPergunta.focus();
+                return;
+            }
+            
+            // Simular envio da pergunta
+            alert('✅ Sua dúvida foi enviada com sucesso!\n\nEm breve entraremos em contato pelo e-mail cadastrado.');
+            inputPergunta.value = ''; // Limpar o campo
+            
+            console.log('📝 Dúvida enviada:', pergunta);
+        });
+    }
 });
+
+console.log("✅ validacao.js carregado com sucesso");

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="description" content="FreeBooks">
-    <meta name="keywords" content="Site de aprendizado de Dev">
-    <title>FreeBooks</title>
+    <meta name="description" content="FreeBooks - Suporte">
+    <meta name="keywords" content="FreeBooks, suporte, ajuda, livros gratuitos">
+    <title>FreeBooks - Suporte</title>
     <link rel="stylesheet" href="style/style.css" id="theme-style">
 </head>
 <body>
@@ -13,33 +13,66 @@
         <span class="logotipo">FreeBooks</span>
         <ul class="navlinks">
             <li><a href="index.html">Home</a></li>
-            <li><a href="quemsomos.html">Quem Somos?</a></li>
+            <li><a href="quemsomos.html">Catálogo</a></li>
             <li><a href="equipe.html">Equipe</a></li>
-            
         </ul>
-        <a href="suporte.html"><button>Suporte</button></a>
-        
+        <div>
+            <a href="suporte.html"><button>Suporte</button></a>
+            <button id="btn-tema" class="botao-tema" title="Alternar tema">🌙</button>
+        </div>
     </header>
-    <main>
-        <h2 class="hh">FreeBooks: o seu site de livros totalmente gratuitos!!</h2>
-        <h1 class="hh"></h1>
-        <form action="" method="post" class="hh">
-          
-        
-        <div>
-            <label for="id_email">Seu e-mail:</label>
-            <input type="email" id="id_email" name="Email"
-            placeholder="Digite o seu email" >
-        </div>
-        
-        <div>
-            <label for="id_cpf">Seu CPF:</label>
-            <input type="text" id="id_cpf" name="CPF" placeholder="000.000.000-00" maxlength="14">
-        </div>
-        <br>
-        <button type="submit">Enviar</button>
 
-        </form>
+    <main>
+        <div class="texto2">
+            <h2>FreeBooks: o seu site de livros totalmente gratuitos!!</h2>
+            <h3 class="hh">Precisa de ajuda? Entre em contato conosco!</h3>
+            
+            <form action="" method="post" id="form-suporte">
+                <!-- 1️⃣ NOME DE USUÁRIO -->
+                <div>
+                    <label for="id_nome">Nome de usuário:</label>
+                    <input type="text" id="id_nome" name="nome" 
+                           placeholder="Digite seu nome de usuário" required>
+                </div>
+                
+                <!-- EMAIL (JÁ EXISTIA) -->
+                <div>
+                    <label for="id_email">Seu e-mail:</label>
+                    <input type="email" id="id_email" name="email"
+                           placeholder="Digite o seu email" required>
+                </div>
+                
+                <!-- CPF (JÁ EXISTIA) -->
+                <div>
+                    <label for="id_cpf">Seu CPF:</label>
+                    <input type="text" id="id_cpf" name="cpf" 
+                           placeholder="000.000.000-00" maxlength="14" required>
+                </div>
+
+                <!-- BOTÃO ENVIAR (JÁ EXISTIA) -->
+                <button type="submit">Enviar Cadastro</button>
+                
+                <!-- 2️⃣ CAIXINHA DE PERGUNTAS -->
+                <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid orange;">
+                    <h3 style="text-align: center; color: orange; margin-bottom: 20px;">
+                        📝 Tem alguma dúvida?
+                    </h3>
+                    
+                    <div>
+                        <label for="id_pergunta">Sua pergunta:</label>
+                        <textarea id="id_pergunta" name="pergunta" 
+                                  rows="5" 
+                                  placeholder="Digite aqui a sua dúvida ou problema..."
+                                  style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; font-family: Arial, Helvetica, sans-serif; resize: vertical;"></textarea>
+                    </div>
+                    
+                    <button type="button" id="btn-enviar-duvida" 
+                            style="margin-top: 15px; background-color: #28a745;">
+                        📤 Enviar Dúvida
+                    </button>
+                </div>
+            </form>
+        </div>
     </main>
 
     <footer class="rodape">
@@ -47,8 +80,48 @@
         <p class="rodape-texto">📚 Compartilhando conhecimento gratuitamente</p>
     </footer>
 
-
     <script src="js/validacao.js"></script>
     <script src="js/tema.js"></script>
+    
+    <script>
+        // Script para a caixinha de perguntas
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnEnviarDuvida = document.getElementById('btn-enviar-duvida');
+            const inputPergunta = document.getElementById('id_pergunta');
+            
+            if (btnEnviarDuvida) {
+                btnEnviarDuvida.addEventListener('click', function() {
+                    const pergunta = inputPergunta.value.trim();
+                    
+                    if (pergunta === '') {
+                        alert('⚠️ Por favor, digite sua dúvida antes de enviar.');
+                        inputPergunta.focus();
+                        return;
+                    }
+                    
+                    // Simular envio da pergunta
+                    alert('✅ Sua dúvida foi enviada com sucesso!\n\nEm breve entraremos em contato pelo e-mail cadastrado.');
+                    inputPergunta.value = ''; // Limpar o campo
+                    
+                    console.log('📝 Dúvida enviada:', pergunta);
+                });
+            }
+            
+            // Formatação automática do CPF
+            const cpfInput = document.getElementById('id_cpf');
+            if (cpfInput) {
+                cpfInput.addEventListener('input', function() {
+                    let valor = this.value.replace(/\D/g, '');
+                    
+                    if (valor.length <= 11) {
+                        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+                        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+                        valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                        this.value = valor;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
