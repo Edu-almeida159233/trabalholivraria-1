@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta name="description" content="FreeBooks">
     <meta name="keywords" content="Site de aprendizado de Dev">
-    <title>FreeBooks</title>
-    <link rel="stylesheet" href="style/style.css" id="theme-style">
+    <title>FreeBooks - Equipe</title>
+    <link rel="stylesheet" href="style.css" id="theme-style"> <!-- CORRIGIDO -->
 </head>
 <body>
     <header>
         <span class="logotipo">FreeBooks</span>
         <ul class="navlinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="quemsomos.html">Catálogo</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="catalogo.php">Catálogo</a></li> <!-- CORRIGIDO -->
             <li><b>Equipe</b></li>
         </ul>
-        <a href="suporte.html"><button>Suporte</button></a>
-        
+        <div>
+            <a href="suporte.php"><button>Suporte</button></a>
+            <button id="btn-tema" class="botao-tema" title="Alternar tema">🌙</button>
+        </div>
     </header>
     <main class="p123">
         <h2>FreeBooks: o seu site de livros totalmente gratuitos!!</h2>
@@ -25,7 +27,7 @@
         <ul>
             <li>Gabriel Solinscki Pereira da Cunha: 202502871724</li><br>
             <li>Eduardo Almeida Gomes: 202503174253</li><br>
-            <li>Pedro </li>
+            <li>Pedro Henrique Amaral Magalhães: 202503200041 </li>
         </ul>
     </main>
            
@@ -35,6 +37,5 @@
     </footer>
 
     <script src="js/tema.js"></script>
-
 </body>
 </html>

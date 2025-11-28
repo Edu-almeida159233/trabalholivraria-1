@@ -13,11 +13,11 @@
         <span class="logotipo">FreeBooks</span>
         <ul class="navlinks">
             <li><b>Home</b></li>
-            <li><a href="quemsomos.html">Catálogo</a></li>
-            <li><a href="equipe.html">Equipe</a></li>
+            <li><a href="catalogo.php">Catálogo</a></li> <!-- CORRIGIDO -->
+            <li><a href="equipe.php">Equipe</a></li>
         </ul>
         <div>
-            <a href="suporte.html"><button>Suporte</button></a>
+            <a href="suporte.php"><button>Suporte</button></a>
             <button id="btn-tema" class="botao-tema" title="Alternar tema">🌙</button>
         </div>
     </header>
@@ -34,7 +34,7 @@
                 
                 <p>No entanto, em tempos de avanços tecnológicos e consumo acelerado de informações, os livros têm sido, infelizmente, deixados de lado. A praticidade das telas e a superficialidade das redes sociais muitas vezes substituem o hábito de leitura profunda, que exige tempo, concentração e dedicação. Essa mudança de comportamento não apenas empobrece o repertório cultural, mas também limita a capacidade de reflexão crítica e empatia, habilidades tão necessárias no mundo atual.</p>
                 
-                <p>Os livros são mais do que objetos; são portais para o conhecimento, a criatividade e a preservação da memória humana. Ignorá-los é abrir mão de uma das ferramentas mais poderosas para o crescimento pessoal e coletivo. Por isso, é essencial resgatar o hábito da leitura, incentivando o contato com obras que inspiren, eduquem e transformem. Afinal, um mundo que lê é um mundo que pensa, questiona e evolui.</p>
+                <p>Os livros são mais do que objetos; são portais para o conhecimento, a criatividade e a preservação da memória humana. Ignorá-los é abrir mão de uma das ferramentas mais poderosas para o crescimento pessoal e coletivo. Por isso, é essencial resgatar o hábito da leitura, incentivando o contato com obras que inspiram, eduquem e transformem. Afinal, um mundo que lê é um mundo que pensa, questiona e evolui.</p>
                 
                 <p><strong>A FreeBooks</strong> foi criada na intenção de compartilhar livros que possam compartilhar o conhecimento com o público que o procura. Para que isso seja possível fazemos de tudo apenas para poder passar conhecimento ao próximo, pois sabemos que livros são a base para a educação mundial.</p>
             </div>
